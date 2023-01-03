@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 import { container } from 'tsyringe'
-
+import { instanceToPlain } from 'class-transformer'
 import UpdateUserAvatarService from '@modules/users/services/UpdateUserAvatarService'
 
 export default class UsersAvatarController {
@@ -12,6 +12,6 @@ export default class UsersAvatarController {
       avatarFilename: request.file?.filename ?? '',
     })
 
-    return response.status(201).json({ user })
+    return response.json(instanceToPlain(user))
   }
 }

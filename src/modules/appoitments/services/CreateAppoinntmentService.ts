@@ -1,6 +1,7 @@
 import { injectable, inject } from 'tsyringe'
 import AppError from '@shared/errors/AppError'
 import IAppoimentsRepository from '../repositories/IAppointmnetsRepository'
+import INotificationRepository from '@modules/notifications/repositories/INotificationsRepository'
 
 interface IRequest {
   provider_id: string
@@ -14,6 +15,8 @@ export default class CreateAppointmentService {
     @inject('AppontmentsRepository')
     private appoinmentsRepository: IAppoimentsRepository,
     @inject('NotificationsRepository')
-    private notificationsRepository: INotificationRepository
+    private notificationsRepository: INotificationRepository,
+    @inject('CacheProvider')
+    private cacheProvider: ICacheProvider
   ) {}
 }

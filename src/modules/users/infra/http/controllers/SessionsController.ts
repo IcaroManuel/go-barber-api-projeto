@@ -1,4 +1,5 @@
 import { Request, Response } from 'express'
+import { instanceToPlain } from 'class-transformer'
 
 import AuthenticateUserService from '@modules/users/services/AuthenticateUserService'
 import { container } from 'tsyringe'
@@ -15,7 +16,7 @@ export default class SessionsController {
         password,
       })
 
-      return response.json({ user: user, token })
+      return response.json(instanceToPlain(user), token)
     } catch ({ message }) {
       return response.status(400).json({
         status: 'error',
