@@ -1,8 +1,8 @@
 import { Request, Response } from 'express'
+import { container } from 'tsyringe'
 import { instanceToPlain } from 'class-transformer'
 
 import AuthenticateUserService from '@modules/users/services/AuthenticateUserService'
-import { container } from 'tsyringe'
 
 export default class SessionsController {
   public async create(request: Request, response: Response): Promise<Response> {
@@ -11,12 +11,12 @@ export default class SessionsController {
 
       const authenticateUserService = container.resolve(AuthenticateUserService)
 
-      const { user, token } = await authenticateUserService.execute({
+      const { user } = await authenticateUserService.execute({
         email,
         password,
       })
 
-      return response.json(instanceToPlain(user), token)
+      return response.json(instanceToPlain(user))
     } catch ({ message }) {
       return response.status(400).json({
         status: 'error',

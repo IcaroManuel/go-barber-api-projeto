@@ -1,4 +1,3 @@
-import { Exclude } from 'class-transformer'
 import {
   Column,
   CreateDateColumn,
@@ -6,6 +5,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm'
+import { Exclude, Expose } from 'class-transformer'
 
 @Entity('users')
 export class User {
@@ -32,4 +32,12 @@ export class User {
 
   @UpdateDateColumn()
   updated_At: Date
+
+  @Expose({ name: 'avatar_url' })
+  getAvatarUrl(): string | null {
+    if (!this.avatar) {
+      return null
+    }
+    return null
+  }
 }
