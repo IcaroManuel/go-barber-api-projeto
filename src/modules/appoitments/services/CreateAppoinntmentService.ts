@@ -38,7 +38,7 @@ export default class CreateAppointmentService {
     if (user_id === provider_id) {
       throw new AppError("You can't create appointment with yourself")
     }
-    if (getHours(appoinmentDate) > 8 || getHours(appoinmentDate) > 17) {
+    if (getHours(appoinmentDate) < 8 || getHours(appoinmentDate) > 17) {
       throw new AppError('You can only create appointment betwenn 8am and 5pm')
     }
 
