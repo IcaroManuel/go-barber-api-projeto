@@ -1,8 +1,8 @@
-import FakeAppointmentsRepository from '@modules/appoitments/repositories/fakes/FakeAppointmentsRepository'
+import FakeAppointmentsRepository from '@modules/appointments/repositories/fakes/FakeAppointmentsRepository'
 import FakeNotificationsRepository from '@modules/notifications/repositories/fakes/FakeNotificationsRepository'
 import FakeCacheProvider from '@shared/container/providers/CacheProvider/fakes/FakeCacheProvicer'
 import AppError from '@shared/errors/AppError'
-import CreateAppointmentService from './CreateAppoinntmentService'
+import CreateAppointmentService from './CreateAppointmentService'
 
 let fakeAppointmentsRepository: FakeAppointmentsRepository
 let fakeNotificationsRepository: FakeNotificationsRepository
