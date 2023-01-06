@@ -48,7 +48,7 @@ class AuthenticateUserService {
       subject: user.id,
       expiresIn: authConfig.jwt.expiresIn,
     })
-
+    console.log(token, 'foi')
     return { user, token }
   }
 }
