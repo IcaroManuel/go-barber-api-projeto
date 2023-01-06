@@ -35,7 +35,7 @@ export default class UsersController {
       const usersRepository = container.resolve(UsersRepository)
       const users = await usersRepository.list()
 
-      return response.json(instanceToPlain(users))
+      return res.json(instanceToPlain(users))
     } catch (err) {
       next(err)
     }

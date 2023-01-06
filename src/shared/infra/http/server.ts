@@ -1,7 +1,7 @@
 import 'reflect-metadata'
 import 'dotenv/config'
 
-import express, { Request, Response } from 'express'
+import express, { NextFunction, Request, Response } from 'express'
 import { errors } from 'celebrate'
 
 import AppError from '../../errors/AppError'
@@ -19,7 +19,7 @@ app.use('/files', express.static(upload.uploadsFolder))
 
 app.use(errors())
 
-app.use((err: Error, req: Request, res: Response) => {
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   if (err instanceof AppError) {
     return res.status(err.statusCode).json({
       status: 'error',
