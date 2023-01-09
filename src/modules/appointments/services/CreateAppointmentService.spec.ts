@@ -16,9 +16,9 @@ describe('CreateAppointment', () => {
     fakeCacheProvider = new FakeCacheProvider()
 
     createAppointment = new CreateAppointmentService(
-      fakeAppointmentsRepository,
       fakeNotificationsRepository,
-      fakeCacheProvider
+      fakeCacheProvider,
+      fakeAppointmentsRepository
     )
   })
 

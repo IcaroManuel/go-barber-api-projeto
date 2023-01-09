@@ -13,7 +13,7 @@ export default class ListProviderService {
   constructor(
     @inject('UsersRepository')
     private usersRepository: IUsersRepository,
-    @inject('CacherProvider')
+    @inject('CacheProvider')
     private cacheProvider: ICacheProvider
   ) {}
 

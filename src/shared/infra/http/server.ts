@@ -10,10 +10,12 @@ import routes from './routes'
 import '../typeorm'
 import '../../container/index'
 import upload from '@config/upload'
+import rateLimiter from './midllewares/rateLimiter'
 
 const app = express()
 
 app.use(express.json())
+app.use(rateLimiter)
 app.use(routes)
 app.use('/files', express.static(upload.uploadsFolder))
 

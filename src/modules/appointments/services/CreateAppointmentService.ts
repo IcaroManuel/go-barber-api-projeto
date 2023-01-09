@@ -17,12 +17,12 @@ interface IRequest {
 @injectable()
 export default class CreateAppointmentService {
   constructor(
-    @inject('AppontmentsRepository')
-    private appoinmentsRepository: IAppoimentsRepository,
     @inject('NotificationsRepository')
     private notificationsRepository: INotificationRepository,
     @inject('CacheProvider')
-    private cacheProvider: ICacheProvider
+    private cacheProvider: ICacheProvider,
+    @inject('AppointmentsRepository')
+    private appoinmentsRepository: IAppoimentsRepository
   ) {}
 
   public async execute({
