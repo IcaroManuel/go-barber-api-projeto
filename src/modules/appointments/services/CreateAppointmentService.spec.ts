@@ -11,9 +11,9 @@ let createAppointment: CreateAppointmentService
 
 describe('CreateAppointment', () => {
   beforeAll(() => {
-    fakeAppointmentsRepository = new FakeAppointmentsRepository()
     fakeNotificationsRepository = new FakeNotificationsRepository()
     fakeCacheProvider = new FakeCacheProvider()
+    fakeAppointmentsRepository = new FakeAppointmentsRepository()
 
     createAppointment = new CreateAppointmentService(
       fakeNotificationsRepository,

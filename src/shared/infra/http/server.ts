@@ -2,22 +2,25 @@ import 'reflect-metadata'
 import 'dotenv/config'
 
 import express, { NextFunction, Request, Response } from 'express'
-import { errors } from 'celebrate'
 
-import AppError from '../../errors/AppError'
+import cors from 'cors'
+
+import { errors } from 'celebrate'
 import routes from './routes'
+import AppError from '../../errors/AppError'
 
 import '../typeorm'
 import '../../container/index'
 import upload from '@config/upload'
-import rateLimiter from './midllewares/rateLimiter'
+import { rateLimiter } from './midllewares/rateLimiter'
 
 const app = express()
 
-app.use(express.json())
 app.use(rateLimiter)
-app.use(routes)
+app.use(cors())
+app.use(express.json())
 app.use('/files', express.static(upload.uploadsFolder))
+app.use(routes)
 
 app.use(errors())
 
