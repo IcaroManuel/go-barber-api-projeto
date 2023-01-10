@@ -11,7 +11,7 @@ import UsersTokensRepository from '@modules/users/infra/typeorm/repositories/Use
 import IAppoimentsRepository from '@modules/appointments/repositories/IAppointmnetsRepository'
 import AppointmentsRepository from '@modules/appointments/infra/typeorm/repositories/AppointmentsRepository'
 import INotificationRepository from '@modules/notifications/repositories/INotificationsRepository'
-import NotificationsRepository from '@modules/notifications/repositories/fakes/FakeNotificationsRepository'
+import NotificationsRepository from '@modules/notifications/infra/typeorm/repositories/NotificationsRepository'
 
 container.registerSingleton<IAppoimentsRepository>(
   'AppointmentsRepository',

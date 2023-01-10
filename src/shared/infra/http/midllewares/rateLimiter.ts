@@ -1,20 +1,20 @@
 import { Request, Response, NextFunction } from 'express'
-// import { createClient } from 'redis'
-import { Redis } from 'ioredis'
+import { createClient } from 'redis'
+// import Redis from 'ioredis'
 import AppError from '@shared/errors/AppError'
 import { RateLimiterRedis } from 'rate-limiter-flexible'
 
-// const redisClient = createClient({
-//   socket: {
-//     host: process.env.REDIS_HOST,
-//     port: parseInt(process.env.REDIS_PORT ?? '', 10),
-//   },
-//   disableOfflineQueue: false,
-// })
-const redisClient = new Redis({
+const redisClient = createClient({
+  socket: {
+    host: process.env.REDIS_HOST,
+    port: parseInt(process.env.REDIS_PORT ?? '', 10),
+  },
+  disableOfflineQueue: false,
+})
+/* const redisClient = new Redis({
   host: process.env.REDIS_HOST,
   port: parseInt(process.env.REDIS_PORT ?? '', 10),
-})
+}) */
 
 ;(async () => {
   await redisClient.connect()
