@@ -6,7 +6,11 @@ import { RateLimiterRedis } from 'rate-limiter-flexible'
 const redisClient = new Redis({
   host: process.env.REDIS_HOST,
   port: parseInt(process.env.REDIS_PORT ?? '', 10),
+  password: 'toor',
 })
+
+console.log(process.env.REDIS_HOST, 'HOST')
+console.log(process.env.REDIS_PORT, 'PORT')
 
 const limiter = new RateLimiterRedis({
   storeClient: redisClient,

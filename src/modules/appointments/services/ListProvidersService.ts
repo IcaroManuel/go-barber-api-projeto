@@ -19,7 +19,7 @@ export default class ListProviderService {
 
   public async execute({ user_id }: IRequest): Promise<User[]> {
     let users = await this.cacheProvider.recover<User[]>(
-      `providers-list;${user_id}`
+      `providers-list:${user_id}`
     )
 
     if (!users) {
