@@ -1,12 +1,18 @@
-import { createConnection, getConnectionOptions } from 'typeorm'
-;(async (): Promise<void> => {
-  const options = await getConnectionOptions('default')
-  createConnection({ ...options, name: 'default' })
-})()
-console.log('Database Connection Established!!')
+import {
+  // createConnection,
+  createConnections,
+  // Connection /* getConnectionOptions */,
+} from 'typeorm'
 
-// createConnection()
+// ;(async (): Promise<void> => {
+//   const options = await getConnectionOptions('default')
+
+//   createConnection({ ...options, name: 'default' })
+// })()
 // console.log('Database Connection Established!!')
+
+createConnections()
+console.log('Database Connection Established!!')
 
 // async function init() {
 // let connection: Connection;
